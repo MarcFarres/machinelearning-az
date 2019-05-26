@@ -18,13 +18,7 @@ from sklearn.preprocessing import Imputer, LabelEncoder, OneHotEncoder
 dataset = pd.read_csv('Data.csv')
 X = dataset.iloc[:, :-1].values
 y = dataset.iloc[:, 3].values
-imputer = Imputer(missing_values = "NaN", strategy = "mean", axis = 0);
-# reemplazamos los valores NaN por las medias de su columna (mean of axis 0)
-imputer.fit(X[:,1:3])
-X[:,1:3] = imputer.transform(X[:,1:3])
-# Codificar datos categóricos
-# Decodificador de las características de los usuarios
-# Le decimos: oye creame un codificador de datos ... vale ok aquí lo tienes
+
 labelencoder_X = LabelEncoder()
 labelencoder_Y = LabelEncoder()
 # toma directamente las columnas que le indicamos y las transforma 
@@ -46,26 +40,5 @@ X = Xhotencoder.fit_transform(X).toarray()
 # para ellos usamos el labelEncoder
 
 
-#---------------------------------------
-# Dividimos el dataset en conjunto de entrenamiento y conjunto de testing
-from sklearn.model_selection import train_test_split
-# X variables independientes de training y test
-# y variables dependientes de training y de test donde veremos si las predicciones
-# son correctas
-# Reservamos un 20% para testing
-# Cuantos mas datos tenemos para testear, menos datos tendremos para aprender
-# training se usa para que el algoritmo aprenda
-Xtraining, Xtesting, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)
-
-
-#escalado de variables
-from sklearn.preprocessing import StandardScaler
-escalableX = StandardScaler()
-# utilizamos fit_transform para aplicar directamente el escalado sobre la variable original
-# si no usariamos primer fit y luego transform
-Xtraining = escalableX.fit_transform(Xtraining)
-# Para los datos de testing no usamos fit, ya que tendriamos diferentes escalados, en su lugar
-# usaremos la misma transofrmacion que ha detectado para los valores de training
-Xtesting = escalableX.transform(Xtesting)
 
 
