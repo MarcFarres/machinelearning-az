@@ -13,7 +13,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 # Se utiliza para cargar y manipular datos (csv, xml, ...)
 import pandas as pd
-from sklearn.preprocessing import Imputer, LabelEncoder, OneHotEncoder
+from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 # Importar el data set
 dataset = pd.read_csv('Data.csv')
 X = dataset.iloc[:, :-1].values
