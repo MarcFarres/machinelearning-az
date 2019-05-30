@@ -27,6 +27,8 @@ onehotencoder = OneHotEncoder(categorical_features=[3])
 X = onehotencoder.fit_transform(X).toarray()
 
 # Evitar la trampa de las variables ficticias
+# Eliminamos la primera variable dummy ya que al haber solo dos ciudades
+# con una sola variable ya tenemos toda la infromaación: si no es uno será el otro
 X = X[:, 1:]
 
 # Dividir el data set en conjunto de entrenamiento y conjunto de testing
