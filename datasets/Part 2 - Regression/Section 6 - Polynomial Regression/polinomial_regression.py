@@ -79,6 +79,17 @@ X_grid = np.arange(min(X), max(X), 0.1)
 # en este caso: desde el mínimo de X hasta el máximo de X con intérvalos de grosor 0.1
 # El tercer 
 X_grid = X_grid.reshape(len(X_grid), 1)
+
+# Predicción de nuestros modelos
+test_value = 6.5
+test_value = np.array(test_value)
+test_value = test_value.reshape(1, -1)
+# al introducir el valor -1 en las columnas, estas se distribuyen automáticamente
+lin_reg.predict(test_value)
+# predict nos da los valores de la función que onstituye nuestro modelo
+lin_reg_2.predict(poly_reg.fit_transform(6.5))
+
+
 # El reshape lo usamos para pasar de un vector fila a un vector columna
 # filas = len(X_grid) , columnas = 1
 plt.scatter(X, y, color = "red")
@@ -88,15 +99,7 @@ plt.xlabel("Posición del empleado")
 plt.ylabel("Sueldo (en $)")
 plt.show()
 
-# Predicción de nuestros modelos
-from sklearn.datasets.samples_generator import make_blobs
-test_value = 6.5
-test_value = np.array(test_value)
-test_value = test_value.reshape(1, -1)
-# al introducir el valor -1 en las columnas, estas se distribuyen automáticamente
-lin_reg.predict(test_value)
-# predict nos da los valores de la función que onstituye nuestro modelo
-lin_reg_2.predict(poly_reg.fit_transform(6.5))
+
 
 
 
