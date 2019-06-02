@@ -1,3 +1,6 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
 import statsmodels.formula.api as sm
 def backwardElimination(x, SL):    
     numVars = len(x[0])    

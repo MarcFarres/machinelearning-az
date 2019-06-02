@@ -78,3 +78,17 @@ regressionOLS.summary()
 X_opt = X[:, [0,1,3,4,5]]
 regressionOLS = statsmodel.OLS(endog = y, exog = X_opt).fit()
 regressionOLS.summary()
+
+X_opt = X[:, [0,3,4,5]]
+regressionOLS = statsmodel.OLS(endog = y, exog = X_opt).fit()
+regressionOLS.summary()
+
+X_opt = X[:, [0,3,5]]
+regressionOLS = statsmodel.OLS(endog = y, exog = X_opt).fit()
+regressionOLS.summary()
+# en este paso deberemos valorar que el 0 de la variable x2 entra en el intervalo de confianza
+# eso significa que es muy probable que el coeficiente de ese término acabe siendo 0
+# Pero entra por muy poco ...  es buena decisión también dejarla y quedarnos aquí
+regression.fit(X_opt, y_train)
+final_pred = regression.predict(X_opt)
+# Como acaba esto ????

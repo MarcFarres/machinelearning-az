@@ -1,3 +1,6 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
 # Eliminación hacia atrás utilizando solamente p-valores
 import statsmodels.formula.api as sm
 def backwardElimination(x, sl):    
